@@ -8,17 +8,21 @@
 
 html {
   min-height: 100%;
-  background: #07111f;
+  background: #050a0d;
 }
 
 body {
   margin: 0;
   min-height: 100vh;
-  background: #07111f;
+  background:
+    radial-gradient(circle at top left, rgba(44, 183, 190, 0.12), transparent 28%),
+    radial-gradient(circle at bottom right, rgba(123, 232, 207, 0.1), transparent 24%),
+    linear-gradient(180deg, #050a0d 0%, #04080b 100%);
   color: white;
   font-family: "Manrope", system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+  overflow-x: hidden;
 }
 
 button,
@@ -36,7 +40,7 @@ a {
 select,
 option {
   color: white;
-  background: #10223c;
+  background: #0e1b22;
 }
 
 textarea {
@@ -47,16 +51,21 @@ textarea {
   min-height: 100vh;
 }
 
+img {
+  max-width: 100%;
+  display: block;
+}
+
 ::-webkit-scrollbar {
   width: 10px;
   height: 10px;
 }
 
 ::-webkit-scrollbar-track {
-  background: rgba(13, 23, 40, 0.75);
+  background: rgba(10, 18, 23, 0.82);
 }
 
 ::-webkit-scrollbar-thumb {
   border-radius: 999px;
-  background: rgba(141, 160, 191, 0.35);
+  background: rgba(123, 232, 207, 0.22);
 }

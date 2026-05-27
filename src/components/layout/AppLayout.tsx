@@ -5,12 +5,10 @@ import { Sidebar } from "@/components/layout/Sidebar";
 
 interface AppLayoutProps {
   title: string;
-  subtitle: string;
 }
 
 export const AppLayout = ({
   title,
-  subtitle,
   children,
 }: PropsWithChildren<AppLayoutProps>) => {
   const { user, logout } = useAuth();
@@ -22,7 +20,7 @@ export const AppLayout = ({
 
   return (
     <div className="min-h-screen bg-background text-white">
-      <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top_right,_rgba(52,211,153,0.12),_transparent_24%),radial-gradient(circle_at_bottom_left,_rgba(125,211,252,0.12),_transparent_22%),linear-gradient(180deg,_#07111f_0%,_#040914_100%)]" />
+      <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top_right,_rgba(44,183,190,0.12),_transparent_24%),radial-gradient(circle_at_bottom_left,_rgba(123,232,207,0.12),_transparent_22%),linear-gradient(180deg,_#050a0d_0%,_#04080b_100%)]" />
       <div className="flex min-h-screen">
         <Sidebar
           isMobileOpen={isMobileOpen}
@@ -32,7 +30,6 @@ export const AppLayout = ({
         <main className="flex-1 px-4 py-4 md:px-6 md:py-6">
           <Header
             title={title}
-            subtitle={subtitle}
             user={user}
             onOpenMenu={() => setIsMobileOpen(true)}
           />

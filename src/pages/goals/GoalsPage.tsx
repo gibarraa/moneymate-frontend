@@ -68,16 +68,10 @@ export const GoalsPage = () => {
                 className="rounded-[1.75rem] border border-white/10 bg-white/5 p-5"
               >
                 <div className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
-                  <div>
-                    <p className="text-xs uppercase tracking-[0.22em] text-slate-500">
-                      Meta de ahorro
-                    </p>
-                    <h2 className="mt-2 font-display text-2xl text-white">
+                  <div className="min-w-0">
+                    <h2 className="truncate font-display text-2xl text-white">
                       {goal.title}
                     </h2>
-                    <p className="mt-2 text-sm leading-7 text-slate-400">
-                      {goal.description}
-                    </p>
                   </div>
                   <Badge tone={ratio >= 100 ? "success" : "neutral"}>
                     {ratio.toFixed(0)}% completado
@@ -95,7 +89,7 @@ export const GoalsPage = () => {
 
                 <div className="mt-3 h-3 rounded-full bg-slate-950/45">
                   <div
-                    className="h-full rounded-full bg-gradient-to-r from-emerald-300 to-sky-300"
+                    className="h-full rounded-full bg-gradient-to-r from-secondary to-primary"
                     style={{ width: `${Math.min(ratio, 100)}%` }}
                   />
                 </div>
@@ -106,15 +100,7 @@ export const GoalsPage = () => {
       </section>
 
       <section className="rounded-[1.75rem] border border-white/10 bg-white/5 p-5">
-        <p className="text-xs uppercase tracking-[0.22em] text-slate-500">
-          Nueva meta
-        </p>
-        <h2 className="mt-2 font-display text-xl text-white">
-          Define una meta accionable
-        </h2>
-        <p className="mt-2 text-sm leading-7 text-slate-400">
-          Puedes registrar el monto objetivo, cuánto llevas ahorrado y la fecha límite.
-        </p>
+        <h2 className="font-display text-xl text-white">Nueva meta</h2>
 
         <form onSubmit={handleSubmit} className="mt-6 space-y-4">
           <Input

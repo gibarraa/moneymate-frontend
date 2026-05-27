@@ -44,9 +44,8 @@ export const LoginPage = () => {
 
   return (
     <AuthShell
-      eyebrow="Acceso seguro"
-      title="Bienvenido de nuevo"
-      subtitle="Inicia sesión para revisar tus balances, movimientos recientes y recomendaciones del mes."
+      eyebrow="Acceso"
+      title="Iniciar sesión"
     >
       <form onSubmit={handleSubmit} className="space-y-5">
         <Input
@@ -73,8 +72,8 @@ export const LoginPage = () => {
         </Button>
 
         <div className="flex items-center justify-between gap-3 text-sm text-slate-400">
-          <span>¿Aún no tienes cuenta?</span>
-          <Link href="/register" className="font-semibold text-emerald-200 hover:text-emerald-100">
+          <span>Sin cuenta</span>
+          <Link href="/register" className="font-semibold text-primary hover:text-white">
             Crear cuenta
           </Link>
         </div>

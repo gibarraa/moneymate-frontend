@@ -82,12 +82,9 @@ export const TransactionForm = ({
       onSubmit={handleSubmit}
       className="rounded-[1.75rem] border border-white/10 bg-white/5 p-5"
     >
-      <div className="flex items-center justify-between gap-4">
+      <div className="flex flex-wrap items-center justify-between gap-3">
         <div>
-          <p className="text-xs uppercase tracking-[0.22em] text-slate-500">
-            Formulario
-          </p>
-          <h3 className="mt-2 font-display text-xl text-white">
+          <h3 className="font-display text-xl text-white">
             {editingTransaction ? "Editar movimiento" : "Nuevo movimiento"}
           </h3>
         </div>
@@ -127,7 +124,7 @@ export const TransactionForm = ({
         <label className="flex flex-col gap-2">
           <span className="text-sm font-medium text-slate-200">Tipo</span>
           <select
-            className="rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white outline-none focus:border-emerald-300/40"
+            className="rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white outline-none focus:border-primary/35"
             value={draft.type}
             onChange={(event) =>
               setDraft((current) => ({
@@ -144,7 +141,7 @@ export const TransactionForm = ({
         <label className="flex flex-col gap-2">
           <span className="text-sm font-medium text-slate-200">Categoría</span>
           <select
-            className="rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white outline-none focus:border-emerald-300/40"
+            className="rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white outline-none focus:border-primary/35"
             value={draft.categoryId}
             onChange={(event) =>
               setDraft((current) => ({
@@ -164,7 +161,7 @@ export const TransactionForm = ({
         <label className="flex flex-col gap-2">
           <span className="text-sm font-medium text-slate-200">Cuenta</span>
           <select
-            className="rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white outline-none focus:border-emerald-300/40"
+            className="rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white outline-none focus:border-primary/35"
             value={draft.accountId}
             onChange={(event) =>
               setDraft((current) => ({
@@ -198,8 +195,8 @@ export const TransactionForm = ({
       <label className="mt-4 flex flex-col gap-2">
         <span className="text-sm font-medium text-slate-200">Notas</span>
         <textarea
-          className="min-h-[110px] rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white outline-none transition placeholder:text-slate-500 focus:border-emerald-300/40"
-          placeholder="Agrega contexto útil para este movimiento"
+          className="min-h-[110px] rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white outline-none transition placeholder:text-slate-500 focus:border-primary/35"
+          placeholder="Notas"
           value={draft.notes}
           onChange={(event) =>
             setDraft((current) => ({

@@ -85,22 +85,17 @@ export const TransactionsPage = () => {
       <section className="rounded-[1.75rem] border border-white/10 bg-white/5 p-5">
         <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
           <div>
-            <p className="text-xs uppercase tracking-[0.22em] text-slate-500">
-              Historial inteligente
-            </p>
-            <h2 className="mt-2 font-display text-xl text-white">
-              Todos tus movimientos
-            </h2>
+            <h2 className="font-display text-xl text-white">Movimientos</h2>
           </div>
-          <Badge tone="neutral">{filteredTransactions.length} resultados</Badge>
+          <Badge tone="neutral">{filteredTransactions.length}</Badge>
         </div>
 
-        <div className="mt-5 grid gap-3 lg:grid-cols-4">
+        <div className="mt-5 grid gap-3 md:grid-cols-2 xl:grid-cols-4">
           <label className="flex items-center gap-3 rounded-2xl border border-white/10 bg-slate-950/35 px-4 py-3 text-sm text-slate-400">
             <SearchIcon className="h-4 w-4" />
             <input
               className="w-full bg-transparent text-white outline-none placeholder:text-slate-500"
-              placeholder="Buscar movimiento"
+              placeholder="Buscar"
               value={search}
               onChange={(event) => setSearch(event.target.value)}
             />
@@ -111,7 +106,7 @@ export const TransactionsPage = () => {
             value={typeFilter}
             onChange={(event) => setTypeFilter(event.target.value)}
           >
-            <option value="all">Todos los tipos</option>
+            <option value="all">Tipo</option>
             <option value="income">Ingresos</option>
             <option value="expense">Egresos</option>
           </select>
@@ -121,7 +116,7 @@ export const TransactionsPage = () => {
             value={categoryFilter}
             onChange={(event) => setCategoryFilter(event.target.value)}
           >
-            <option value="all">Todas las categorías</option>
+            <option value="all">Categoría</option>
             {categories.map(([id, label]) => (
               <option key={id} value={id}>
                 {label}
@@ -156,9 +151,9 @@ export const TransactionsPage = () => {
                 className="rounded-3xl border border-white/8 bg-slate-950/35 p-4"
               >
                 <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
-                  <div>
+                  <div className="min-w-0">
                     <div className="flex flex-wrap items-center gap-2">
-                      <h3 className="font-semibold text-white">
+                      <h3 className="truncate font-semibold text-white">
                         {transaction.description}
                       </h3>
                       <Badge
@@ -169,17 +164,17 @@ export const TransactionsPage = () => {
                         {transaction.type === "income" ? "Ingreso" : "Egreso"}
                       </Badge>
                     </div>
-                    <p className="mt-2 text-sm text-slate-400">
+                    <p className="mt-2 truncate text-sm text-slate-400">
                       {transaction.category} • {transaction.accountName} •{" "}
                       {formatShortDate(transaction.date)}
                     </p>
                   </div>
 
-                  <div className="flex items-center gap-3">
+                  <div className="flex flex-wrap items-center gap-3 md:justify-end">
                     <p
-                      className={`text-lg font-semibold ${
+                      className={`shrink-0 text-lg font-semibold ${
                         transaction.type === "income"
-                          ? "text-emerald-200"
+                          ? "text-primary"
                           : "text-rose-200"
                       }`}
                     >

@@ -51,9 +51,8 @@ export const RegisterPage = () => {
 
   return (
     <AuthShell
-      eyebrow="Onboarding premium"
-      title="Crea tu cuenta"
-      subtitle="Regístrate para empezar a organizar tus movimientos, presupuestos y metas desde una sola vista."
+      eyebrow="Registro"
+      title="Crear cuenta"
     >
       <form onSubmit={handleSubmit} className="space-y-5">
         <Input
@@ -94,8 +93,8 @@ export const RegisterPage = () => {
         </Button>
 
         <div className="flex items-center justify-between gap-3 text-sm text-slate-400">
-          <span>¿Ya tienes cuenta?</span>
-          <Link href="/login" className="font-semibold text-emerald-200 hover:text-emerald-100">
+          <span>Ya tienes cuenta</span>
+          <Link href="/login" className="font-semibold text-primary hover:text-white">
             Iniciar sesión
           </Link>
         </div>

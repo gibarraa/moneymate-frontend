@@ -20,13 +20,11 @@ export const SettingsPage = () => {
     <div className="grid gap-5 xl:grid-cols-[1fr_1fr]">
       <article className="rounded-[1.75rem] border border-white/10 bg-white/5 p-5">
         <div className="flex items-center gap-3">
-          <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-emerald-300/15 text-emerald-100">
+          <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/14 text-primary">
             <WalletIcon className="h-6 w-6" />
           </div>
           <div>
-            <p className="text-xs uppercase tracking-[0.22em] text-slate-500">
-              Perfil
-            </p>
+            <p className="text-xs uppercase tracking-[0.22em] text-slate-500">Perfil</p>
             <h2 className="mt-2 font-display text-2xl text-white">{user.name}</h2>
           </div>
         </div>
@@ -58,12 +56,8 @@ export const SettingsPage = () => {
           <div className="flex items-center gap-3">
             <SettingsIcon className="h-6 w-6 text-slate-300" />
             <div>
-              <p className="text-xs uppercase tracking-[0.22em] text-slate-500">
-                Datos del proyecto
-              </p>
-              <h3 className="mt-2 font-display text-xl text-white">
-                Estado del frontend
-              </h3>
+              <p className="text-xs uppercase tracking-[0.22em] text-slate-500">Proyecto</p>
+              <h3 className="mt-2 font-display text-xl text-white">Estado</h3>
             </div>
           </div>
 
@@ -83,21 +77,14 @@ export const SettingsPage = () => {
           </div>
         </article>
 
-        <article className="rounded-[1.75rem] border border-emerald-300/18 bg-gradient-to-br from-emerald-300/12 via-white/5 to-sky-300/10 p-5">
+        <article className="rounded-[1.75rem] border border-primary/16 bg-gradient-to-br from-secondary/12 via-white/5 to-primary/10 p-5">
           <div className="flex items-center gap-3">
-            <SparklesIcon className="h-6 w-6 text-emerald-100" />
+            <SparklesIcon className="h-6 w-6 text-primary" />
             <div>
-              <p className="text-xs uppercase tracking-[0.22em] text-emerald-100/70">
-                Tip extra
-              </p>
-              <h3 className="mt-2 font-display text-xl text-white">
-                Convierte esta vista en panel de operación
-              </h3>
+              <p className="text-xs uppercase tracking-[0.22em] text-primary/80">API</p>
+              <h3 className="mt-2 font-display text-xl text-white">Lista para conectar</h3>
             </div>
           </div>
-          <p className="mt-5 text-sm leading-7 text-slate-200">
-            Conecta el backend y mantén un usuario demo documentado para que cualquier evaluador pueda entrar sin fricción.
-          </p>
         </article>
       </section>
     </div>

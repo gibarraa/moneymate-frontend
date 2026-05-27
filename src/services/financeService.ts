@@ -101,14 +101,14 @@ const defaultGoals: Goal[] = [
 const defaultRecommendations: Recommendation[] = [
   {
     id: "rec-1",
-    title: "Reduce compras impulsivas",
+    title: "Recorta impulsos",
     message:
       "Tus gastos variables crecieron esta semana. Define un límite rápido para comida y ocio para recuperar margen.",
     tone: "alert",
   },
   {
     id: "rec-2",
-    title: "Acelera tu meta principal",
+    title: "Acelera tu meta",
     message:
       "Si apartas 8% extra de tus ingresos del mes, tu meta de laptop se adelanta casi tres semanas.",
     tone: "positive",
@@ -228,6 +228,17 @@ const readStoredSnapshot = () => {
     return null;
   }
 };
+
+const syncRecommendations = (recommendations: Recommendation[]) =>
+  recommendations.map((recommendation) => {
+    const defaultVersion = defaultRecommendations.find(
+      (entry) => entry.id === recommendation.id,
+    );
+
+    return defaultVersion
+      ? { ...recommendation, title: defaultVersion.title, message: defaultVersion.message }
+      : recommendation;
+  });
 
 const saveSnapshot = (snapshot: FinanceSnapshot) => {
   const next = { ...snapshot, lastSynced: new Date().toISOString() };
@@ -371,7 +382,16 @@ const syncBudgets = (budgets: Budget[], transactions: Transaction[]) =>
 
 export const financeService = {
   async getSnapshot() {
-    return readStoredSnapshot() ?? saveSnapshot(createSeedSnapshot());
+    const stored = readStoredSnapshot();
+
+    if (!stored) {
+      return saveSnapshot(createSeedSnapshot());
+    }
+
+    return saveSnapshot({
+      ...stored,
+      recommendations: syncRecommendations(stored.recommendations),
+    });
   },
 
   async saveTransaction(draft: TransactionDraft, currentId?: string) {

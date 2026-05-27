@@ -20,38 +20,26 @@ const publicRoutes = {
 const privateRoutes = {
   "/dashboard": {
     title: "Dashboard",
-    subtitle:
-      "Una vista clara de tu balance, tus categorías clave y los movimientos más recientes.",
     page: <DashboardPage />,
   },
   "/transactions": {
     title: "Movimientos",
-    subtitle:
-      "Registra, filtra y edita ingresos o egresos con una experiencia rápida y visual.",
     page: <TransactionsPage />,
   },
   "/budgets": {
     title: "Presupuestos",
-    subtitle:
-      "Monitorea cuánto llevas usado por categoría y detecta alertas antes de excederte.",
     page: <BudgetsPage />,
   },
   "/goals": {
     title: "Metas",
-    subtitle:
-      "Convierte tus objetivos de ahorro en avances medibles y visibles cada semana.",
     page: <GoalsPage />,
   },
   "/reports": {
     title: "Reportes",
-    subtitle:
-      "Resume el mes, detecta patrones y descarga una evidencia rápida de tu estado financiero.",
     page: <ReportsPage />,
   },
   "/settings": {
     title: "Configuración",
-    subtitle:
-      "Consulta tu perfil, datos técnicos del proyecto y accesos importantes del frontend.",
     page: <SettingsPage />,
   },
 };
@@ -102,7 +90,7 @@ export const AppRoutes = () => {
 
   return (
     <PrivateRoute>
-      <AppLayout title={route.title} subtitle={route.subtitle}>
+      <AppLayout title={route.title}>
         {route.page}
       </AppLayout>
     </PrivateRoute>

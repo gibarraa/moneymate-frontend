@@ -1,49 +1,41 @@
-import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
 import { MenuIcon } from "@/components/ui/Icons";
 import type { User } from "@/types/auth";
-import { formatLongDate } from "@/utils/date";
 import { getInitials } from "@/utils/initials";
 
 interface HeaderProps {
   title: string;
-  subtitle: string;
   user: User;
   onOpenMenu: () => void;
 }
 
 export const Header = ({
   title,
-  subtitle,
   user,
   onOpenMenu,
 }: HeaderProps) => (
-  <header className="flex flex-col gap-4 rounded-[1.75rem] border border-white/10 bg-white/6 p-5 shadow-soft md:flex-row md:items-center md:justify-between">
-    <div className="flex items-start gap-4">
+  <header className="grid gap-4 rounded-[1.75rem] border border-white/10 bg-white/6 p-4 shadow-soft md:grid-cols-[1fr_auto] md:items-center md:p-5">
+    <div className="flex min-w-0 items-center gap-3">
       <Button
         variant="secondary"
-        className="md:hidden"
+        className="px-3 py-3 md:hidden"
         onClick={onOpenMenu}
         aria-label="Abrir navegación"
       >
         <MenuIcon className="h-4 w-4" />
       </Button>
-      <div>
-        <p className="text-xs uppercase tracking-[0.22em] text-slate-500">
-          {formatLongDate(new Date().toISOString())}
-        </p>
-        <h1 className="mt-2 font-display text-3xl text-white">{title}</h1>
-        <p className="mt-2 text-sm leading-6 text-slate-400">{subtitle}</p>
+      <div className="min-w-0">
+        <h1 className="truncate font-display text-[2rem] leading-none text-white md:text-[2.4rem]">
+          {title}
+        </h1>
       </div>
     </div>
 
-    <div className="flex items-center gap-4">
-      <Badge tone="success">{user.plan ?? "Premium"}</Badge>
-      <div className="text-right">
-        <p className="text-sm font-semibold text-white">{user.name}</p>
-        <p className="text-xs text-slate-500">{user.email}</p>
+    <div className="flex min-w-0 items-center justify-between gap-3 md:justify-end">
+      <div className="min-w-0 text-right">
+        <p className="truncate text-sm font-semibold text-white">{user.name}</p>
       </div>
-      <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-emerald-300/25 to-sky-300/20 font-semibold text-white">
+      <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-secondary/30 to-primary/20 font-semibold text-white">
         {getInitials(user.name)}
       </div>
     </div>

@@ -21,9 +21,9 @@ interface ToastContextValue {
 const ToastContext = createContext<ToastContextValue | null>(null);
 
 const toastStyles: Record<ToastTone, string> = {
-  success: "border-emerald-400/40 bg-emerald-400/10 text-emerald-50",
+  success: "border-primary/40 bg-primary/10 text-primary",
   error: "border-rose-400/40 bg-rose-400/10 text-rose-50",
-  info: "border-sky-400/40 bg-sky-400/10 text-sky-50",
+  info: "border-secondary/40 bg-secondary/10 text-white",
 };
 
 export const ToastProvider = ({ children }: PropsWithChildren) => {

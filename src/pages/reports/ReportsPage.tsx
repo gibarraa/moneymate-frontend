@@ -48,18 +48,14 @@ export const ReportsPage = () => {
     <div className="grid gap-5">
       <section className="grid gap-5 xl:grid-cols-[1.1fr_0.9fr]">
         <article className="rounded-[1.75rem] border border-white/10 bg-white/5 p-5">
-          <p className="text-xs uppercase tracking-[0.22em] text-slate-500">
-            Resumen mensual
-          </p>
-          <h2 className="mt-2 font-display text-2xl text-white">
-            Reporte de {summary.monthLabel}
-          </h2>
+          <p className="text-xs uppercase tracking-[0.22em] text-slate-500">Mes</p>
+          <h2 className="mt-2 font-display text-2xl text-white">{summary.monthLabel}</h2>
 
           <div className="mt-6 grid gap-4 md:grid-cols-3">
             {[
               ["Ingresos", summary.incomeTotal],
               ["Egresos", summary.expenseTotal],
-              ["Balance neto", summary.netTotal],
+              ["Neto", summary.netTotal],
             ].map(([label, value]) => (
               <div
                 key={label}
@@ -76,23 +72,16 @@ export const ReportsPage = () => {
           </div>
         </article>
 
-        <article className="rounded-[1.75rem] border border-emerald-300/18 bg-gradient-to-br from-emerald-300/12 via-white/5 to-sky-300/10 p-5">
+        <article className="rounded-[1.75rem] border border-primary/16 bg-gradient-to-br from-secondary/12 via-white/5 to-primary/10 p-5">
           <div className="flex items-center gap-3">
-            <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-emerald-300/15 text-emerald-100">
+            <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/14 text-primary">
               <SparklesIcon className="h-6 w-6" />
             </div>
             <div>
-              <p className="text-xs uppercase tracking-[0.22em] text-emerald-100/70">
-                Mejor recomendación
-              </p>
-              <h2 className="mt-2 font-display text-xl text-white">
-                {summary.recommendation.title}
-              </h2>
+              <p className="text-xs uppercase tracking-[0.22em] text-primary/80">Tip</p>
+              <h2 className="mt-2 font-display text-xl text-white">{summary.recommendation.title}</h2>
             </div>
           </div>
-          <p className="mt-5 text-sm leading-7 text-slate-200">
-            {summary.recommendation.message}
-          </p>
         </article>
       </section>
 
@@ -100,42 +89,26 @@ export const ReportsPage = () => {
         <article className="rounded-[1.75rem] border border-white/10 bg-white/5 p-5">
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-xs uppercase tracking-[0.22em] text-slate-500">
-                Insight clave
-              </p>
-              <h3 className="mt-2 font-display text-xl text-white">
-                Categoría con mayor gasto
-              </h3>
+              <p className="text-xs uppercase tracking-[0.22em] text-slate-500">Mayor gasto</p>
+              <h3 className="mt-2 font-display text-xl text-white">Categoría</h3>
             </div>
             <ReportsIcon className="h-6 w-6 text-slate-400" />
           </div>
 
-          <p className="mt-6 font-display text-4xl text-white">
-            {summary.topExpenseCategory}
-          </p>
-          <p className="mt-3 text-sm leading-7 text-slate-400">
-            Úsalo como punto de partida para recortar o redistribuir presupuesto en el siguiente ciclo.
-          </p>
+          <p className="mt-6 font-display text-4xl text-white">{summary.topExpenseCategory}</p>
         </article>
 
         <article className="rounded-[1.75rem] border border-white/10 bg-white/5 p-5">
-          <p className="text-xs uppercase tracking-[0.22em] text-slate-500">
-            Acciones
-          </p>
-          <h3 className="mt-2 font-display text-xl text-white">
-            Generar reporte descargable
-          </h3>
-          <p className="mt-3 text-sm leading-7 text-slate-400">
-            Descarga un resumen ligero para compartir avances o dejar evidencia del estado financiero actual.
-          </p>
+          <p className="text-xs uppercase tracking-[0.22em] text-slate-500">Exportar</p>
+          <h3 className="mt-2 font-display text-xl text-white">Reporte</h3>
 
           <div className="mt-6 flex flex-wrap gap-3">
             <Button onClick={handleGenerate}>
               <ReportsIcon className="h-4 w-4" />
-              Generar reporte
+              Descargar
             </Button>
             <Button variant="secondary" onClick={() => window.print()}>
-              Imprimir vista
+              Imprimir
             </Button>
           </div>
         </article>

@@ -17,25 +17,25 @@ export const SummaryCard = ({
   trendDirection,
   icon,
 }: SummaryCardProps) => (
-  <article className="group rounded-[1.75rem] border border-white/10 bg-white/6 p-5 shadow-soft transition duration-300 hover:-translate-y-1 hover:border-emerald-300/30 hover:bg-white/8">
-    <div className="flex items-center justify-between">
-      <div>
+  <article className="group rounded-[1.75rem] border border-white/10 bg-white/6 p-5 shadow-soft transition duration-300 hover:-translate-y-1 hover:border-primary/20 hover:bg-white/8">
+    <div className="flex items-start justify-between gap-4">
+      <div className="min-w-0">
         <p className="text-xs uppercase tracking-[0.22em] text-slate-500">
           {title}
         </p>
-        <p className="mt-4 font-display text-3xl text-white">
+        <p className="mt-4 truncate font-display text-3xl text-white">
           {formatCurrency(amount)}
         </p>
       </div>
-      <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-emerald-300/20 to-sky-300/10 text-emerald-200">
+      <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-secondary/20 to-primary/10 text-primary">
         {icon}
       </div>
     </div>
-    <div className="mt-5 flex items-center gap-2 text-sm">
+    <div className="mt-5 flex items-center gap-2 text-xs text-slate-300">
       <span
         className={`flex h-7 w-7 items-center justify-center rounded-full ${
           trendDirection === "up"
-            ? "bg-emerald-400/12 text-emerald-200"
+            ? "bg-primary/12 text-primary"
             : "bg-rose-400/12 text-rose-200"
         }`}
       >
@@ -45,7 +45,7 @@ export const SummaryCard = ({
           <ArrowDownIcon className="h-4 w-4" />
         )}
       </span>
-      <span className="text-slate-300">{trend}</span>
+      <span className="truncate">{trend}</span>
     </div>
   </article>
 );

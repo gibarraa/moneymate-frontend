@@ -41,30 +41,30 @@ export const DashboardPage = () => {
     <div className="grid gap-5">
       <section className="grid gap-5 xl:grid-cols-4">
         <SummaryCard
-          title="Balance total"
+          title="Balance"
           amount={metrics.totalBalance}
-          trend="+8.4% vs mes pasado"
+          trend="+8%"
           trendDirection="up"
           icon={<WalletIcon className="h-6 w-6" />}
         />
         <SummaryCard
-          title="Ingresos del mes"
+          title="Ingresos"
           amount={metrics.monthlyIncome}
-          trend="Mejor que tu promedio reciente"
+          trend="Mes"
           trendDirection="up"
           icon={<TransactionsIcon className="h-6 w-6" />}
         />
         <SummaryCard
-          title="Egresos del mes"
+          title="Egresos"
           amount={metrics.monthlyExpenses}
-          trend="Controlados en 3 categorías"
+          trend="3 rubros"
           trendDirection="down"
           icon={<BudgetIcon className="h-6 w-6" />}
         />
         <SummaryCard
-          title="Ahorro estimado"
+          title="Ahorro"
           amount={metrics.estimatedSavings}
-          trend="Espacio ideal para tu meta top"
+          trend="Libre"
           trendDirection="up"
           icon={<SparklesIcon className="h-6 w-6" />}
         />
@@ -87,12 +87,8 @@ export const DashboardPage = () => {
         <article className="rounded-[1.75rem] border border-white/10 bg-white/5 p-5">
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-xs uppercase tracking-[0.22em] text-slate-500">
-                Actividad
-              </p>
-              <h3 className="mt-2 font-display text-xl text-white">
-                Últimos movimientos
-              </h3>
+              <p className="text-xs uppercase tracking-[0.22em] text-slate-500">Últimos</p>
+              <h3 className="mt-2 font-display text-xl text-white">Movimientos</h3>
             </div>
             <Badge tone="neutral">Top 5</Badge>
           </div>
@@ -101,18 +97,18 @@ export const DashboardPage = () => {
             {metrics.recentTransactions.map((transaction) => (
               <div
                 key={transaction.id}
-                className="flex items-center justify-between rounded-3xl border border-white/6 bg-slate-950/35 px-4 py-4"
+                className="flex items-center justify-between gap-4 rounded-3xl border border-white/6 bg-slate-950/35 px-4 py-4"
               >
-                <div>
-                  <p className="font-medium text-white">{transaction.description}</p>
-                  <p className="mt-1 text-xs text-slate-500">
+                <div className="min-w-0">
+                  <p className="truncate font-medium text-white">{transaction.description}</p>
+                  <p className="truncate mt-1 text-xs text-slate-500">
                     {transaction.category} • {formatShortDate(transaction.date)}
                   </p>
                 </div>
                 <p
-                  className={`text-sm font-semibold ${
+                  className={`shrink-0 text-sm font-semibold ${
                     transaction.type === "income"
-                      ? "text-emerald-200"
+                      ? "text-primary"
                       : "text-rose-200"
                   }`}
                 >
@@ -124,48 +120,34 @@ export const DashboardPage = () => {
           </div>
         </article>
 
-        <article className="rounded-[1.75rem] border border-emerald-300/18 bg-gradient-to-br from-emerald-300/12 via-white/5 to-sky-300/10 p-5">
+        <article className="rounded-[1.75rem] border border-primary/16 bg-gradient-to-br from-secondary/12 via-white/5 to-primary/10 p-5">
           <div className="flex items-center gap-3">
-            <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-emerald-300/18 text-emerald-100">
+            <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/14 text-primary">
               <SparklesIcon className="h-6 w-6" />
             </div>
             <div>
-              <p className="text-xs uppercase tracking-[0.22em] text-emerald-100/70">
-                Recomendación destacada
-              </p>
+              <p className="text-xs uppercase tracking-[0.22em] text-primary/80">Tip</p>
               <h3 className="mt-2 font-display text-xl text-white">
                 {snapshot.recommendations[0]?.title}
               </h3>
             </div>
           </div>
 
-          <p className="mt-5 text-sm leading-7 text-slate-200">
-            {snapshot.recommendations[0]?.message}
-          </p>
-
           <div className="mt-8 grid gap-4 md:grid-cols-2">
             <div className="rounded-3xl border border-white/10 bg-slate-950/35 p-4">
-              <p className="text-xs uppercase tracking-[0.18em] text-slate-500">
-                Mayor fuga detectada
-              </p>
+              <p className="text-xs uppercase tracking-[0.18em] text-slate-500">Mayor gasto</p>
               <p className="mt-3 font-display text-2xl text-white">
                 {metrics.topExpenseCategory}
               </p>
-              <p className="mt-1 text-sm text-slate-400">
-                {formatCurrency(metrics.topExpenseValue)} acumulados
-              </p>
+              <p className="mt-1 text-sm text-slate-400">{formatCurrency(metrics.topExpenseValue)}</p>
             </div>
 
             <div className="rounded-3xl border border-white/10 bg-slate-950/35 p-4">
-              <p className="text-xs uppercase tracking-[0.18em] text-slate-500">
-                Metas activas
-              </p>
+              <p className="text-xs uppercase tracking-[0.18em] text-slate-500">Metas</p>
               <p className="mt-3 font-display text-2xl text-white">
                 {snapshot.goals.length}
               </p>
-              <p className="mt-1 text-sm text-slate-400">
-                Alineadas con tu ahorro del mes
-              </p>
+              <p className="mt-1 text-sm text-slate-400">Activas</p>
             </div>
           </div>
         </article>

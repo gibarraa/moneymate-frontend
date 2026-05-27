@@ -25,7 +25,7 @@ const getBudgetTone = (ratio: number) => {
 };
 
 const getBudgetBarColor = (ratio: number) => {
-  if (ratio <= 60) return "bg-emerald-300";
+  if (ratio <= 60) return "bg-primary";
   if (ratio <= 85) return "bg-amber-300";
   if (ratio <= 100) return "bg-orange-300";
   return "bg-rose-300";
@@ -76,12 +76,7 @@ export const BudgetsPage = () => {
               >
                 <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
                   <div>
-                    <p className="text-xs uppercase tracking-[0.22em] text-slate-500">
-                      Categoría
-                    </p>
-                    <h2 className="mt-2 font-display text-2xl text-white">
-                      {budget.category}
-                    </h2>
+                    <h2 className="font-display text-2xl text-white">{budget.category}</h2>
                     <p className="mt-2 text-sm text-slate-400">
                       {formatCurrency(budget.spent)} / {formatCurrency(budget.limit)}
                     </p>
@@ -99,10 +94,10 @@ export const BudgetsPage = () => {
                 </div>
 
                 <div className="mt-5 flex items-center gap-2 text-sm text-slate-300">
-                  <CheckIcon className="h-4 w-4 text-emerald-200" />
+                  <CheckIcon className="h-4 w-4 text-primary" />
                   {ratio > 100
-                    ? "Tu límite ya fue superado, conviene ajustar gasto o presupuesto."
-                    : "Aún estás dentro del rango objetivo para esta categoría."}
+                    ? "Excedido"
+                    : "Dentro"}
                 </div>
               </article>
             );
@@ -111,15 +106,7 @@ export const BudgetsPage = () => {
       </section>
 
       <section className="rounded-[1.75rem] border border-white/10 bg-white/5 p-5">
-        <p className="text-xs uppercase tracking-[0.22em] text-slate-500">
-          Nuevo presupuesto
-        </p>
-        <h2 className="mt-2 font-display text-xl text-white">
-          Define un tope por categoría
-        </h2>
-        <p className="mt-2 text-sm leading-7 text-slate-400">
-          El progreso se alimenta automáticamente según tus egresos registrados.
-        </p>
+        <h2 className="font-display text-xl text-white">Nuevo presupuesto</h2>
 
         <form onSubmit={handleCreate} className="mt-6 space-y-4">
           <label className="flex flex-col gap-2">
