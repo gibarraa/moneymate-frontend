@@ -115,11 +115,13 @@ Configuración del proyecto en Vercel:
 | Framework preset | Vite |
 | Build command | `npm run build` |
 | Output directory | `dist` |
-| Variable de producción | `VITE_API_URL=https://link-del-backend/api` |
+| Variable de producción | `VITE_API_URL=https://moneymate-backend-production.up.railway.app/api` |
 
 Link público del frontend: <https://moneymate-frontend-lake.vercel.app/login>
 
-La variable `VITE_API_URL` debe configurarse cuando el backend tenga una URL pública en Render.
+API pública del backend: <https://moneymate-backend-production.up.railway.app/>
+
+Health check verificado: <https://moneymate-backend-production.up.railway.app/api/health>
 
 ## Backend esperado
 
