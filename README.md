@@ -48,6 +48,8 @@ npm install
 npm run dev
 ```
 
+## Comandos
+
 Para producción:
 
 ```bash
@@ -106,6 +108,17 @@ src/
 
 El proyecto incluye `vercel.json` para soportar rutas SPA en Vercel.
 
+Configuración del proyecto en Vercel:
+
+| Ajuste | Valor |
+| --- | --- |
+| Framework preset | Vite |
+| Build command | `npm run build` |
+| Output directory | `dist` |
+| Variable de producción | `VITE_API_URL=https://link-del-backend/api` |
+
+Link público del frontend: `PENDIENTE_DE_DEPLOY`
+
 ## Backend esperado
 
 Este frontend espera una API compatible en:
@@ -124,3 +137,4 @@ Y puede extenderse fácilmente para conectar:
 ## Rama de trabajo
 
 - `frontend-premium`
+- Documentación/deploy: `mongodb-docs-deploy`
