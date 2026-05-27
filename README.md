@@ -117,7 +117,9 @@ Configuración del proyecto en Vercel:
 | Output directory | `dist` |
 | Variable de producción | `VITE_API_URL=https://link-del-backend/api` |
 
-Link público del frontend: `PENDIENTE_DE_DEPLOY`
+Link público del frontend: <https://moneymate-frontend-lake.vercel.app/login>
+
+La variable `VITE_API_URL` debe configurarse cuando el backend tenga una URL pública en Render.
 
 ## Backend esperado
 
